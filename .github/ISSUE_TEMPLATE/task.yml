@@ -1,0 +1,18 @@
+name: Tarea de desarrollo
+description: Registrar una actividad del proyecto.
+title: "[TAREA] "
+labels: [documentation]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Objetivo
+    validations:
+      required: true
+  - type: textarea
+    id: checklist
+    attributes:
+      label: Criterios de aceptación
+      description: Lista verificable de lo que debe quedar terminado.
+    validations:
+      required: true

@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: tienda-integral-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tienda_integral
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      - tienda_integral_data:/var/lib/postgresql/data
+volumes:
+  tienda_integral_data:

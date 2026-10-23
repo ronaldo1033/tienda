@@ -1,0 +1,17 @@
+PROYECTO TIENDA - ENTREGA GIT Y GITHUB
+
+Repositorio: https://github.com/ronaldo1033/tienda
+
+1. Descomprime el ZIP.
+2. Entra en la carpeta tienda-integral-backend (la que contiene pom.xml).
+3. Ejecuta PUBLICAR_EN_GITHUB.bat con doble clic.
+4. Revisa los archivos que Git va a publicar antes de confirmar.
+5. Si GitHub solicita autenticación, usa el navegador/Git Credential Manager. No introduzcas tokens en el BAT.
+6. Comprueba el repositorio y la pestaña Actions.
+
+Documentación:
+- docs/github/CRONOGRAMA-SVC.md: evidencias relacionadas con semanas y sesiones del curso.
+- docs/github/GIT-GUIA-PRACTICA.md: comandos, ramas, commits, merge, conflictos, PR y releases.
+- .github/workflows/maven.yml: compilación/pruebas automáticas con Maven y Java 21.
+
+El BAT publica la rama main sin usar force push. Si el remoto ya tiene commits, intenta integrarlos; si hay conflictos, se detiene para que se resuelvan manualmente.
