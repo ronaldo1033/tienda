@@ -1,0 +1,12 @@
+TIENDA INTEGRAL — PAQUETE PARA AVANCES 1, 2 Y 3
+
+1. Revisa README.md y docs/github/PLAN-AVANCES-1-2-3.md.
+2. NO ejecutes PUBLICAR_EN_GITHUB.bat sobre una carpeta nueva ni hagas force push.
+3. Clona el repositorio original y trabaja en una rama. Puedes usar el script:
+   powershell -ExecutionPolicy Bypass -File .\scripts\github\PREPARAR-AVANCE3.ps1
+   Debe ejecutarse desde la carpeta del proyecto extraído (donde está pom.xml dentro de tienda-main\tienda-main).
+4. El script crea una carpeta hermana llamada tienda-github-trabajo, clona el remoto y copia los archivos actualizados a una rama nueva. No hace commit ni push.
+5. Revisa `git status`, ejecuta `mvn verify`, inspecciona los cambios y recién entonces haz commit/push.
+6. Sigue docs/github/GUIA-PRACTICA-GIT-GITHUB.md y el resto de documentos en docs/github/.
+
+Este paquete contiene guías, plantillas y workflows. No contiene evidencias ficticias ni crea automáticamente Issues, Projects, PRs o un despliegue cloud. Esas acciones deben realizarse y capturarse en GitHub.

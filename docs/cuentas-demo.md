@@ -48,5 +48,5 @@ O define la variable de entorno `APP_DEMO_DATA_ENABLED=false`.
 
 - Estas contraseñas son públicas y solo deben usarse para una demo local.
 - Cambia las contraseñas, el secreto JWT y las credenciales de base de datos antes de desplegar el sistema.
-- La cuenta de cliente de acceso (`cliente.demo`) y la ficha comercial en la tabla `clientes` son registros distintos en el modelo actual.
+- La cuenta de acceso `cliente.demo` se relaciona con su ficha de cliente mediante el mismo correo electrónico para permitir el flujo de compra desde la web.
 - Los pagos son simulados; no se usan tarjetas ni servicios bancarios reales.
