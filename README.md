@@ -10,8 +10,8 @@ Backend Java 21 / Spring Boot 3.4 / PostgreSQL con arquitectura por capas, auten
 
 ## Inicio rápido
 1. Copia `.env.example` a `.env` y cambia las credenciales. Spring Boot no carga automáticamente `.env`; exporta esas variables en tu terminal o configura el entorno de ejecución del IDE.
-2. Inicia PostgreSQL: `docker compose up -d`.
-3. Configura `DB_URL`, `DB_USERNAME`, `DB_PASSWORD` y `JWT_SECRET` como variables del sistema.
+2. Para iniciar rápidamente, ejecuta `mvn spring-boot:run`: H2 en memoria se usa por defecto.
+3. Para PostgreSQL, inicia el servicio con `docker compose up -d` y configura `DB_URL`, `DB_USERNAME`, `DB_PASSWORD` y `JWT_SECRET` como variables del sistema.
 4. Ejecuta: `mvn spring-boot:run`.
 5. Swagger: http://localhost:8080/swagger-ui.html
 
@@ -81,14 +81,17 @@ El proyecto incluye una interfaz web responsive con Bootstrap 5 y Thymeleaf:
 
 - `/` o `/tienda`: catálogo público y búsqueda de productos.
 - `/tienda/producto/{id}`: detalle de un producto.
-- `/registro`: creación de cuenta de cliente.
+- `/registro`: creación de cuenta y perfil de cliente (nombres, apellidos, documento y correo).
 - `/login`: inicio de sesión.
-- `/tienda/admin`: panel de administración, métricas básicas, inventario y alta de productos.
+- `/carrito`: carrito por sesión, actualización y eliminación de cantidades.
+- `/checkout`: dirección de entrega y confirmación del pedido.
+- `/mi-cuenta`: historial de compras del cliente.
+- `/tienda/admin`: panel de administración con menú lateral y siete módulos.
 - `/swagger-ui.html`: documentación de la API REST.
 
 Las cuentas creadas desde el formulario de registro tienen rol `CLIENTE`. Para entrar al panel se necesita una cuenta con rol `ADMIN`; no se crea un administrador por defecto. Puedes asignar el rol desde la base de datos únicamente en un entorno de desarrollo controlado.
 
-El flujo de carrito, generación de pedidos desde el catálogo y checkout real no está implementado todavía; la ficha del producto lo indica para evitar dar a entender que se puede comprar en línea de extremo a extremo.
+El flujo web permite agregar productos al carrito, validar stock, registrar una dirección de entrega, crear la venta, descontar inventario y consultar el historial de pedidos. Los métodos de transferencia y tarjeta son simulados: no se conecta a una entidad bancaria ni se procesa dinero real. Para producción se debe integrar una pasarela de pago y reforzar la seguridad de la sesión y las operaciones.
 
 
 ## Inicio rápido (frontend Thymeleaf)
@@ -106,3 +109,8 @@ El Whitelabel es solo una página genérica; suele aparecer si la base de datos 
 ## Cuentas demo y carga inicial
 
 Al iniciar la aplicación se cargan automáticamente cuentas de prueba, categorías, un proveedor, productos y una ficha de cliente. Consulta **[docs/cuentas-demo.md](docs/cuentas-demo.md)** para ver usuarios y contraseñas, URL de acceso, pasos de inicio y cómo desactivar la carga demo. La carga es idempotente y está pensada únicamente para desarrollo local.
+
+
+## Herramientas de desarrollo y evidencias del curso
+
+Consulta [INICIO-AVANCE-3.txt](INICIO-AVANCE-3.txt) y la [documentación de GitHub](docs/github/README.md). Allí se organiza el trabajo de control de versiones, gestión, CI/CD y despliegue cloud. Las evidencias remotas deben generarse realmente en GitHub; el paquete no simula Issues, PRs, Releases ni despliegues.

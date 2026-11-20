@@ -6,7 +6,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder; import 
 public class SecurityConfig {
  @Bean SecurityFilterChain filterChain(HttpSecurity http,JwtAuthFilter jwt)throws Exception{
   return http.headers(h->h.frameOptions(f->f.sameOrigin())).csrf(c->c.disable()).sessionManagement(s->s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-   .authorizeHttpRequests(a->a.requestMatchers("/","/tienda/**","/login","/registro","/logout","/css/**","/js/**","/images/**","/error","/api/v1/auth/**","/swagger-ui/**","/swagger-ui.html","/v3/api-docs/**","/actuator/health","/h2-console/**").permitAll()
+   .authorizeHttpRequests(a->a.requestMatchers("/","/tienda/**","/login","/registro","/logout","/carrito/**","/checkout","/mi-cuenta","/css/**","/js/**","/images/**","/error","/api/v1/auth/**","/swagger-ui/**","/swagger-ui.html","/v3/api-docs/**","/actuator/health","/h2-console/**").permitAll()
    .requestMatchers("/api/v1/reportes/**").hasRole("ADMIN").requestMatchers("/api/v1/usuarios/**").hasRole("ADMIN")
    .requestMatchers("/api/v1/categorias/**","/api/v1/proveedores/**","/api/v1/productos/**","/api/v1/inventario/**").hasAnyRole("ADMIN","CLIENTE")
    .anyRequest().authenticated()).addFilterBefore(jwt,UsernamePasswordAuthenticationFilter.class).build();
